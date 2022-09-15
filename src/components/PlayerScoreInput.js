@@ -1,57 +1,67 @@
 import LetterInput from "./LetterInput";
-
+// would like to refactor to make this more concise
 export default function PlayerScoreInput(props) {
     return (
         <div>
             <LetterInput 
                 letterId="letter1"
-                dWordId="dWord1"
-                tWordId="tWord1"
+                dLetterId="dLetter1"
+                tLetterId="tLetter1"
+                name="doubleTriple1"
             />
             <LetterInput 
                 letterId="letter2"
-                dWordId="dWord2"
-                tWordId="tWord2"
+                dLetterId="dLetter2"
+                tLetterId="tLetter2"
+                name="doubleTriple2"
             />
             <LetterInput 
                 letterId="letter3"
-                dWordId="dWord3"
-                tWordId="tWord3"
+                dLetterId="dLetter3"
+                tLetterId="tLetter3"
+                name="doubleTriple3"
             />
             <LetterInput 
                 letterId="letter4"
-                dWordId="dWord4"
-                tWordId="tWord4"
+                dLetterId="dLetter4"
+                tLetterId="tLetter4"
+                name="doubleTriple4"
             />
             <LetterInput 
                 letterId="letter5"
-                dWordId="dWord5"
-                tWordId="tWord5"
+                dLetterId="dLetter5"
+                tLetterId="tLetter5"
+                name="doubleTriple5"
             />
             <LetterInput 
                 letterId="letter6"
-                dWordId="dWord6"
-                tWordId="tWord6"
+                dLetterId="dLetter6"
+                tLetterId="tLetter6"
+                name="doubleTriple6"
             />
             <LetterInput 
                 letterId="letter7"
-                dWordId="dWord7"
-                tWordId="tWord7"
+                dLetterId="dLetter7"
+                tLetterId="tLetter7"
+                name="doubleTriple7"
             />
             <LetterInput 
                 letterId="letter8"
-                dWordId="dWord8"
-                tWordId="tWord8"
+                dLetterId="dLetter8"
+                tLetterId="tLetter8"
+                name="doubleTriple8"
             />
             <LetterInput 
                 letterId="letter9"
-                dWordId="dWord9"
-                tWordId="tWord9"
+                dLetterId="dLetter9"
+                tLetterId="tLetter9"
+                name="doubleTriple9"
             />
             <LetterInput 
                 letterId="letter10"
-                dWordId="dWord10"
-                tWordId="tWord10"
+                dLetterId="dLetter10"
+                tLetterId="tLetter10"
+                name="doubleTriple10"
             />
         </div>
     )

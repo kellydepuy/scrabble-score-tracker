@@ -10,6 +10,7 @@ export default function NamesInput(props) {
                 {props.numPlayers > 2 && <input id="p3" type="text"></input>}
                 {props.numPlayers > 3 && <label htmlFor="p4" type="text">Player Four Name:</label>}
                 {props.numPlayers > 3 && <input id="p4" type="text"></input>}
+                
                 <button onClick={props.handleStartGame}>Start Game!</button>
             </form>
         </div>
