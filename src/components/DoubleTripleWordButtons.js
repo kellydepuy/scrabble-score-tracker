@@ -1,10 +1,14 @@
 export default function DoubleTripleWordButtons() {
     return (
-        <div>
-            <label htmlFor="doubleWordCheck">Activate Double Word?</label>
-            <input type="checkbox" id="doubleWordCheck"/>
-            <label htmlFor="tripleWordCheck">Activate Triple Word?</label>
-            <input type="checkbox" id="tripleWordCheck"/>
+        <div className="double-triple-word-checkboxes">
+            <div>
+                <label htmlFor="doubleWordCheck">Double Word?</label>
+                <input type="checkbox" id="doubleWordCheck"/>
+            </div>
+            <div>
+                <label htmlFor="tripleWordCheck">Triple Word?</label>
+                <input type="checkbox" id="tripleWordCheck"/>
+            </div>
         </div>
     )
 }

@@ -1,13 +1,237 @@
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  font-family: 'Comfortaa', cursive;
+  background-color: #f7f0f0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  font-family: 'Comfortaa', cursive;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  background-color: rgb(196, 22, 22);
+  color: white;
+  padding: 1em 2em;
+  border-radius: .25em;
+  box-shadow: 0 1px 1px black;
+}
+
+
+button:hover {
+  cursor: pointer;
+}
+
+/* ********** Header ********** */
+header {
+  padding: 2rem 1% 1em 1%;
+  background-image: linear-gradient(rgb(196, 22, 22), rgb(116, 3, 3));
+}
+.header-scrabble-container {
+  display: flex;
+  justify-content: center;
+}
+
+.header-scrabble-letter-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7e3c9;
+  margin: 1%;
+  width: 5vw;
+  padding: .7em;
+  aspect-ratio: 1 / 1;
+  box-shadow: -1px 1px 1px rgb(71, 53, 29);
+  border: 1px solid #e7d5bc;
+  border-radius: 2px;
+}
+
+.header-scrabble-letter {
+  padding: 0;
+  margin: 0;
+  font-size: 8vw;
+  font-weight: 700;
+  color: black;
+  line-height: 0;
+}
+
+.header-score-tracker {
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  margin-top: .5em;
+  color: #e7d5bc;
+  font-weight: 700;
+}
+
+/* ********** Start New Game Content ********** */
+
+h2 {
+  font-size: 1.3rem;
+}
+.start-new-game-container, .names-input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type=text], input[type=number] {
+  width: fit-content;
+  margin-bottom: 2em;
+  border: none;
+  border: 1px solid rgb(116, 3, 3);
+  height: 2em;
+  border-radius: .25em;
+  background-color: white;
+  text-align: center;
+ 
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+label {
+  margin-bottom: 1em;
+}
+
+.start-game-button:active {
+  background-color: rgb(116, 3, 3);
+}
+
+/* ********** Game Content ********** */
+
+.game-content-container {
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 2;
+ 
+}
+
+/* ***** Score Header ***** */
+
+#score-header-container {
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 2;
+  margin: 1em 1em .5em 1em;
+
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid rgb(116, 3, 3);
+}
+
+#score-header-p1 {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+#score-header-p2 {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+#score-header-p3 {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+#score-header-p4 {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.score-header-name {
+  color: rgb(116, 3, 3);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.score-info-div {
+  text-align: left;
+}
+
+.score-header-labels {
+  font-size: .7rem;
+  margin-right: .5rem;
+}
+
+/* ***** Game Content Form ***** */
+
+.select-player-label, .select-player-input {
+  margin: 2em .5em;
+}
+
+.player-score-input-container {
+  width: 90%;
+}
+.player-score-input-container input[type=text] {
+  width: 20%;
+  height: 1.5em;
+  margin: .5em;
+  font-size: 2rem;
+}
+
+.hidden-radio {
+  display: none;
+}
+.single-letter-input-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio-label {
+  padding: .3em;
+  border: 2px outset rgb(206, 169, 169);
+  border-radius: 5px;
+  font-size: .95rem;
+}
+
+.radio-label-d {
+  border-right: 1px solid rgb(116, 3, 3);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: -3px;
+}
+
+.radio-label-t {
+  border-left: 0;
+  border-right: 1px solid rgb(116, 3, 3);
+  border-radius: 0;
+  margin-left: -3px;
+  margin-right: -3px;
+}
+
+.radio-label-default {
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -3px;
+}
+
+input[type=radio]:checked + label {
+  background-color: rgb(196, 22, 22);
+  color: white;
+}
+
+input[type=checkbox] {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 1rem;
+}
+
+.double-triple-word-checkboxes {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0 2em 0;
+}
+
+.add-to-score-button {
+  padding: 1em;
+  margin-bottom: 3em;
 }

@@ -1,6 +1,7 @@
 import StartNewGameContent from "./components/StartNewGameContent";
 import { useState } from "react";
 import GameContent from "./components/GameContent";
+import Header from "./components/Header";
 
 
 function App() {
@@ -27,6 +28,7 @@ function handleNumPlayers(e) {
 
   return (
     <div className="container">
+      <Header />
       {isGameStarted === false && <StartNewGameContent numPlayers={numPlayers} isGameStarted={isGameStarted} handleNumPlayers={handleNumPlayers} handleStartGame={handleStartGame}/>}
       {isGameStarted === true && <GameContent playersArray={playersArray}/>}
     </div>

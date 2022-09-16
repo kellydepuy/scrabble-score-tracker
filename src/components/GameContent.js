@@ -75,7 +75,7 @@ export default function GameContent(props) {
     }
 
     return (
-        <div>
+        <div className="game-content-container">
             <ScoreHeader
                 playerOne={props.playersArray[0]}
                 playerOneScore={playerOneScore}
@@ -96,8 +96,8 @@ export default function GameContent(props) {
             />
             
             <form>
-                <label htmlFor="selectPlayerName">Select Player</label>
-                <select name="selectPlayerName" id="selectPlayerName">
+                <label className="select-player-label" htmlFor="selectPlayerName">Select Player</label>
+                <select className="select-player-input" name="selectPlayerName" id="selectPlayerName">
                     <option value={props.playersArray[0]}>{props.playersArray[0]}</option>
                     <option value={props.playersArray[1]}>{props.playersArray[1]}</option>
                     <option value={props.playersArray[2]}>{props.playersArray[2]}</option>
@@ -105,7 +105,7 @@ export default function GameContent(props) {
                 </select>
                 <PlayerScoreInput />
                 <DoubleTripleWordButtons />
-                <button onClick={handleAddWordToScore}>Add Word to Player's Score</button>
+                <button className="add-to-score-button" onClick={handleAddWordToScore}>Add to Player's Score</button>
             </form>
 
         </div>
