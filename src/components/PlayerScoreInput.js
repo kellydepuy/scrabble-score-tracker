@@ -9,6 +9,7 @@ export default function PlayerScoreInput(props) {
                 tLetterId="tLetter1"
                 default="default1"
                 name="doubleTriple1"
+                placeholder="S"
             />
             <LetterInput 
                 letterId="letter2"
@@ -16,6 +17,7 @@ export default function PlayerScoreInput(props) {
                 tLetterId="tLetter2"
                 default="default2"
                 name="doubleTriple2"
+                placeholder="C"
             />
             <LetterInput 
                 letterId="letter3"
@@ -23,6 +25,7 @@ export default function PlayerScoreInput(props) {
                 tLetterId="tLetter3"
                 default="default3"
                 name="doubleTriple3"
+                placeholder="R"
             />
             <LetterInput 
                 letterId="letter4"
@@ -30,6 +33,7 @@ export default function PlayerScoreInput(props) {
                 tLetterId="tLetter4"
                 default="default4"
                 name="doubleTriple4"
+                placeholder="A"
             />
             <LetterInput 
                 letterId="letter5"
@@ -37,6 +41,7 @@ export default function PlayerScoreInput(props) {
                 tLetterId="tLetter5"
                 default="default5"
                 name="doubleTriple5"
+                placeholder="B"
             />
             <LetterInput 
                 letterId="letter6"
@@ -44,6 +49,7 @@ export default function PlayerScoreInput(props) {
                 tLetterId="tLetter6"
                 default="default6"
                 name="doubleTriple6"
+                placeholder="B"
             />
             <LetterInput 
                 letterId="letter7"
@@ -51,6 +57,7 @@ export default function PlayerScoreInput(props) {
                 tLetterId="tLetter7"
                 default="default7"
                 name="doubleTriple7"
+                placeholder="L"
             />
             <LetterInput 
                 letterId="letter8"
@@ -58,6 +65,7 @@ export default function PlayerScoreInput(props) {
                 tLetterId="tLetter8"
                 default="default8"
                 name="doubleTriple8"
+                placeholder="E"
             />
             <LetterInput 
                 letterId="letter9"

@@ -7,14 +7,15 @@ import Header from "./components/Header";
 function App() {
   const [isGameStarted, setIsGameStarted] = useState(false)
   const [playersArray, setPlayersArray] = useState([])
+
   const [numPlayers, setNumPlayers] = useState(1)
+
+  const [isGameEnded, setIsGameEnded] = useState(false)
 
   function handleStartGame(e) {
     e.preventDefault()
-    console.log(e)
     for(let i = 0; i < numPlayers; i++) {
       if (e.target.form[i].value) {
-        console.log(e.target.form[i].value)
         setPlayersArray(current => [...current, e.target.form[i].value])
       }
     }
@@ -25,12 +26,24 @@ function handleNumPlayers(e) {
     setNumPlayers(e.target.value)
 }
 
+function handlePlayAgain() {
+  console.log("clicked")
+  setIsGameStarted(false)
+  setPlayersArray([])
+  setNumPlayers(1)
+  setIsGameEnded(false)
+}
+
+function gameEnded() {
+  setIsGameEnded(true)
+}
 
   return (
     <div className="container">
       <Header />
       {isGameStarted === false && <StartNewGameContent numPlayers={numPlayers} isGameStarted={isGameStarted} handleNumPlayers={handleNumPlayers} handleStartGame={handleStartGame}/>}
-      {isGameStarted === true && <GameContent playersArray={playersArray}/>}
+      {isGameStarted === true && <GameContent gameEnded={gameEnded} isGameEnded={isGameEnded} handlePlayAgain={handlePlayAgain} numPlayers={numPlayers} playersArray={playersArray}/>}
+     
     </div>
   );
 }

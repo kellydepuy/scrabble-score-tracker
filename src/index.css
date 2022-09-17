@@ -25,6 +25,10 @@ button:hover {
   cursor: pointer;
 }
 
+button:active {
+  opacity: .6;
+}
+
 /* ********** Header ********** */
 header {
   padding: 2rem 1% 1em 1%;
@@ -52,7 +56,7 @@ header {
 .header-scrabble-letter {
   padding: 0;
   margin: 0;
-  font-size: 8vw;
+  font-size: 4vw;
   font-weight: 700;
   color: black;
   line-height: 0;
@@ -98,10 +102,6 @@ label {
   margin-bottom: 1em;
 }
 
-.start-game-button:active {
-  background-color: rgb(116, 3, 3);
-}
-
 /* ********** Game Content ********** */
 
 .game-content-container {
@@ -118,8 +118,7 @@ label {
   display: grid;
   grid-template-columns: 2;
   grid-template-rows: 2;
-  margin: 1em 1em .5em 1em;
-
+  margin: 1em auto .5em auto;
   padding-bottom: 1.5em;
   border-bottom: 1px solid rgb(116, 3, 3);
 }
@@ -127,28 +126,31 @@ label {
 #score-header-p1 {
   grid-row: 1;
   grid-column: 1;
+  text-align: center;
 }
 
 #score-header-p2 {
   grid-row: 1;
   grid-column: 2;
+  text-align: center;
 }
 
 #score-header-p3 {
   grid-row: 2;
   grid-column: 1;
+  text-align: center;
 }
 
 #score-header-p4 {
   grid-row: 2;
   grid-column: 2;
+  text-align: center;
 }
 
 .score-header-name {
   color: rgb(116, 3, 3);
   font-weight: 700;
   text-align: center;
-  text-decoration: underline;
 }
 
 .score-info-div {
@@ -165,12 +167,22 @@ label {
 .select-player-label, .select-player-input {
   margin: 2em .5em;
 }
+.select-player-input option{
+  font-family: 'Comfortaa', cursive;
+  font-size: .7rem;
+}
+
+.select-player-input {
+  width: 100px;
+  height: 2em;
+  border: none;
+}
 
 .player-score-input-container {
-  width: 90%;
+  max-width: 350px;
 }
 .player-score-input-container input[type=text] {
-  width: 20%;
+  width: 15%;
   height: 1.5em;
   margin: .5em;
   font-size: 2rem;
@@ -196,22 +208,20 @@ label {
   border-right: 1px solid rgb(116, 3, 3);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  margin-right: -3px;
+
 }
 
 .radio-label-t {
   border-left: 0;
   border-right: 1px solid rgb(116, 3, 3);
   border-radius: 0;
-  margin-left: -3px;
-  margin-right: -3px;
 }
 
 .radio-label-default {
   border-left: 0;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  margin-left: -3px;
+
 }
 
 input[type=radio]:checked + label {
@@ -223,6 +233,7 @@ input[type=checkbox] {
   width: 1.5rem;
   height: 1.5rem;
   margin-left: 1rem;
+  margin-bottom: 1.5em;
 }
 
 .double-triple-word-checkboxes {
@@ -231,7 +242,116 @@ input[type=checkbox] {
   margin: 1em 0 2em 0;
 }
 
+.double-triple{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .add-to-score-button {
   padding: 1em;
   margin-bottom: 3em;
+}
+
+/* ********** End Game Content ********** */
+
+.end-game-content {
+  position: fixed;
+  top: 200px;
+  left: 5%;
+  right: 5%;
+  color: white;
+  background-color: rgb(196, 22, 22);
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0px 3px 1px rgb(116, 3, 3);
+  font-weight: 700;
+  z-index: 1001;
+  width: 90%;
+}
+
+.congrats-text {
+  font-size: 1.2rem;
+  letter-spacing: .1em;
+}
+.end-game-scores-div {
+  background-color: rgb(116, 3, 3);
+  padding: .5em .5em .5em 1em;
+  border-radius: 10px;
+  text-align:left;
+  font-size: .9rem;
+}
+
+#play-again-button {
+  background-color: #e7d5bc;
+  color: rgb(116, 3, 3);
+}
+
+#end-game-button {
+  margin-bottom: 4em;
+}
+
+@media (min-width:500px) {
+  html {
+    font-size: 18px;
+  }
+  #score-header-container {
+    display: flex;
+    justify-content: center;
+    gap: 15em;
+    padding: 0 2em 1em 2em;
+  }
+
+  .player-score-input-container {
+    max-width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  .player-score-input-container input[type=text] {
+    width: 1.5em;
+    height: 1.5em;
+    margin: .5em;
+    font-size: 2rem;
+  }
+
+  .end-game-content {
+    max-width: 400px;
+    margin: 3em auto;
+  }
+
+  .start-new-game-container {
+    background-color: rgb(196, 22, 22);
+    width: fit-content;
+    margin: 5em auto;
+    padding: 3em;
+    color: #fcf5eb;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px rgb(116, 3, 3);
+  }
+
+  .start-game-button {
+    background-color: #e7d5bc;
+    color: black;
+  }
+
+  .double-triple-word-checkboxes {
+    flex-direction: row;
+    justify-content: space-evenly;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+}
+
+@media (min-width: 750px) {
+  .player-score-input-container {
+    justify-content: center;
+    gap: 2em;
+    max-width: 1100px;
+  }
+
 }
