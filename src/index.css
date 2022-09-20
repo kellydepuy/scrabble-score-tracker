@@ -162,6 +162,17 @@ label {
   margin-right: .5rem;
 }
 
+.linkToWordList {
+  background-color: rgb(196, 22, 22);
+  font-size: .8rem;
+  width: fit-content;
+  height: fit-content;
+  padding: .5em 2em;
+  border-radius: 5px;
+  margin: auto;
+  color: white;
+   text-decoration: none;
+}
 /* ***** Game Content Form ***** */
 
 .select-player-label, .select-player-input {
@@ -242,6 +253,10 @@ input[type=checkbox] {
   margin: 1em 0 2em 0;
 }
 
+#tripleWordCheck, #doubleWordCheck {
+ margin-left: 1em;
+}
+
 .double-triple{
   display: flex;
   justify-content: center;
@@ -251,6 +266,38 @@ input[type=checkbox] {
 .add-to-score-button {
   padding: 1em;
   margin-bottom: 3em;
+}
+
+/* ********** Word Lists ********** */
+
+.xButton {
+  padding: .2em .2em .1em .2em;
+  font-size: .7rem;
+  height: fit-content;
+  margin-left: 1em;
+  margin-bottom: .2em;
+  box-shadow: none;
+  text-align: center;
+}
+
+.wordListWordDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2em;
+}
+.wordListDiv {
+  background-color: #e7d5bc;
+  padding: 2em;
+  margin: 2em;
+  box-shadow: 0px 1px 1px rgb(71, 53, 29);
+  border: 1px solid #e7d5bc;
+  border-radius: 2px;
+}
+
+.score-header-name {
+  font-size: 1.3rem;
+  margin-bottom: 0;
 }
 
 /* ********** End Game Content ********** */

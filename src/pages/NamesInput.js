@@ -1,4 +1,8 @@
+import { Link, useNavigate } from "react-router-dom"
+
+
 export default function NamesInput(props) {
+    const navigate = useNavigate()
     return (
         <div className="names-input-container">
             <form className="names-input-form">
@@ -12,6 +16,7 @@ export default function NamesInput(props) {
                 {props.numPlayers > 3 && <input id="p4" type="text"></input>}
                 
                 <button className="start-game-button" onClick={props.handleStartGame}>Start Game!</button>
+            
             </form>
         </div>
     )

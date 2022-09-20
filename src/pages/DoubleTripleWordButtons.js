@@ -3,11 +3,11 @@ export default function DoubleTripleWordButtons() {
         <div className="double-triple-word-checkboxes">
             <div className="double-triple">
                 <label htmlFor="doubleWordCheck">Double Word?</label>
-                <input type="checkbox" id="doubleWordCheck"/>
+                <input type="number" max="8" min="0" id="doubleWordCheck"/>
             </div>
             <div className="double-triple">
                 <label htmlFor="tripleWordCheck">Triple Word?</label>
-                <input type="checkbox" id="tripleWordCheck"/>
+                <input type="number" max="8" min="0"  id="tripleWordCheck"/>
             </div>
         </div>
     )

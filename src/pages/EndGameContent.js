@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function EndGameContent(props) {
     // add feature: display players from highest to lowest score
     const scores = props.stats.playerScoresArray
@@ -25,6 +27,7 @@ export default function EndGameContent(props) {
         winner = props.stats.playerFour.playerFourName + '! You won!'
     }
     
+    console.log(props.stats)
     return(
         <div className="end-game-content">
             <p className="congrats-text">Congratulations {winner}</p>
@@ -36,7 +39,9 @@ export default function EndGameContent(props) {
             </div>
             
             <p className="scores-text">The best word was {props.stats.bestWord.bestWord} played by {props.stats.bestWord.playerName} and scored {props.stats.bestWord.bestScore} points!</p>
-            <button onClick={props.handlePlayAgain} id="play-again-button">Play Again?</button>
+            <Link to="/">
+                <button onClick={props.handlePlayAgain} id="play-again-button">Play Again?</button>
+            </Link>
         </div>
     )
 }

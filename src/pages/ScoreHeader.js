@@ -1,4 +1,5 @@
 import ScoreHeaderBlocks from "./ScoreHeaderBlocks"
+import { Link } from "react-router-dom"
 
 export default function ScoreHeader(props) {
     return ( 
@@ -30,6 +31,8 @@ export default function ScoreHeader(props) {
             playerScore={props.playerFourScore}
             lastWordScore={props.lastWordScorePlayerFour}
          />}
+
+         <Link className="linkToWordList" to="/editableWordList">View/Remove Words</Link>
     </div>
        
     )
