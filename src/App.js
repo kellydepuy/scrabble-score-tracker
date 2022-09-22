@@ -60,7 +60,6 @@ function App() {
         playerScoresArray: [playerOneScore, playerTwoScore, playerThreeScore, playerFourScore]
     }
     setStats(statsObj)
-    document.getElementById("hidden").style.display = "none"
   }
 
 function handleAddWordToScore(e) {
@@ -162,24 +161,52 @@ function handlePlayAgain() {
   setLastWordScorePlayerThree(0)
   setLastWordScorePlayerFour(0)
   setStats({})
-  setListOfWordsP1({})
-  setListOfWordsP2({})
-  setListOfWordsP3({})
-  setListOfWordsP4({})
+  setListOfWordsP1([])
+  setListOfWordsP2([])
+  setListOfWordsP3([])
+  setListOfWordsP4([])
 }
 
 function handleXButton(e) {
   console.log(e)
   const id = e.target.id
   const playerNum = id[0] + id[1]
+  let removedScore = 0
+
   
   if (playerNum === "p1") {
+    for (let i = 0; i < listOfWordsP1.length; i++) {
+      if (listOfWordsP1[i].id === id) {
+        removedScore = listOfWordsP1[i].score
+      }
+    }
+    setPlayerOneScore(playerOneScore - removedScore)
     setListOfWordsP1(listOfWordsP1.filter((el) => el.id != id))
+    
     } else if (playerNum === "p2") {
+      for (let i = 0; i < listOfWordsP2.length; i++) {
+        if (listOfWordsP2[i].id === id) {
+          removedScore = listOfWordsP2[i].score
+        }
+      }
+      setPlayerTwoScore(playerTwoScore - removedScore)
       setListOfWordsP2(listOfWordsP2.filter((el) => el.id != id))
+      
     } else if (playerNum === "p3") {
-      setListOfWordsP3(listOfWordsP3.filter((el) => el.id != id))
+      for (let i = 0; i < listOfWordsP3.length; i++) {
+        if (listOfWordsP3[i].id === id) {
+          removedScore = listOfWordsP3[i].score
+        }
+      }
+      setPlayerThreeScore(playerThreeScore - removedScore)
+      setListOfWordsP3(listOfWordsP4.filter((el) => el.id != id))
     } else {
+      for (let i = 0; i < listOfWordsP4.length; i++) {
+        if (listOfWordsP1[i].id === id) {
+          removedScore = listOfWordsP4[i].score
+        }
+      }
+      setPlayerFourScore(playerFourScore - removedScore)
       setListOfWordsP4(listOfWordsP4.filter((el) => el.id != id))
     }
   }
