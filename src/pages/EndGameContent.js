@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom"
+import ScrollToTop from "./ScrollToTop"
 
 export default function EndGameContent(props) {
-    // add feature: display players from highest to lowest score
+    
     const scores = props.stats.playerScoresArray
     const sortedScores = scores.sort(function(a, b){return a-b})
     const highestScore = sortedScores[3]
 
     let winner = ""
     let numOfWinner = 0
-    
+
     for (let i = 0; i < sortedScores.length; i++) {
         if (sortedScores[i] === highestScore) {
             numOfWinner++
@@ -27,9 +28,9 @@ export default function EndGameContent(props) {
         winner = props.stats.playerFour.playerFourName + '! You won!'
     }
     
-    console.log(props.stats)
     return(
         <div className="end-game-content">
+            <ScrollToTop />
             <p className="congrats-text">Congratulations {winner}</p>
             <div className="end-game-scores-div">
                 <p className="scores-text">{props.stats.playerOne.playerOneName}'s Score was {props.stats.playerOne.playerOneScore}</p>

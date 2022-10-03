@@ -2,13 +2,14 @@ import DoubleTripleWordButtons from "./DoubleTripleWordButtons";
 import PlayerScoreInput from "./PlayerScoreInput";
 import ScoreHeader from "./ScoreHeader";
 import { Link } from "react-router-dom";
-import WordLists from "./WordLists";
+import ScrollToTop from "./ScrollToTop";
 
 export default function GameContent(props) {
 
     return (
         <div className="game-content-container">
-            <div id="hidden">
+            <ScrollToTop />
+            <div>
                 <ScoreHeader
                     numPlayers={props.numPlayers}
 
@@ -41,7 +42,7 @@ export default function GameContent(props) {
                     <DoubleTripleWordButtons />
                     <button className="add-to-score-button">Add to Player's Score</button>
                 </form>
-                <Link to="/gameSummary">
+                <Link to="/finalizingScore">
                     <button id="end-game-button" onClick={props.handleEndGame}>End Game</button>
                 </Link>
             </div>

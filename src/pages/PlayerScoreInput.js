@@ -1,6 +1,6 @@
 import LetterInput from "./LetterInput";
-// would like to refactor to make this more concise
-export default function PlayerScoreInput(props) {
+
+export default function PlayerScoreInput() {
     return (
         <div className="player-score-input-container">
             <LetterInput 

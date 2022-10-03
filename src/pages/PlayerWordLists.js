@@ -1,5 +1,9 @@
-export default function PlayerWordLists(props) {   
-    const html = props.wordList.map(el => (<div key={el.score + el.id} className="wordListWordDiv"><p>{el.word}  {el.score}</p> <button onClick={props.handleXButton} className="xButton" id={el.id}>X</button></div>))
+export default function PlayerWordLists(props) { 
+    //maps over word list and displays word and its score  
+    const html = props.wordList.map(el => (<div key={el.score + el.id} className="wordListWordDiv">
+                                                <p>{el.word}  {el.score}</p>
+                                                <button onClick={props.handleXButton} className="xButton" id={el.id}>X</button>
+                                                </div>))
 
     return (
         <div className="wordListDiv">
