@@ -7,6 +7,7 @@ import EndGameContent from "./pages/EndGameContent";
 import WordLists from "./pages/WordLists";
 import FinalizeScore from "./pages/FinalizeScores";
 import ScrollToTop from "./pages/ScrollToTop";
+import StatsPage from "./pages/StatsPage";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
     A: 1, E: 1, I: 1, O: 1, U: 1, R: 1, S: 1, T: 1, L: 1, N: 1, D: 2, G: 2,
     B: 3, C: 3, M: 3, P: 3, F: 4, H: 4, V: 4, W: 4, Y: 4, K: 5, J: 8, X: 8, Q: 10, Z: 10
 }
+
 // useEffect necessary to ensure stats are set at the appropriate times due to async of setState
 useEffect(() =>  setStats({
   playerOne: {
@@ -322,6 +324,7 @@ function handleFinalScore(e) {
                                             />} />
             <Route path="/gameSummary" element={<EndGameContent 
                                                 handlePlayAgain={handlePlayAgain}
+                                                playersArray={playersArray}
                                                 numPlayers={numPlayers}
                                                 stats={stats}
                                                 />} />
@@ -336,10 +339,14 @@ function handleFinalScore(e) {
                                                     handleXButton={handleXButton}
                                                     />} />
             <Route path="finalizingScore" element={<FinalizeScore
-                                                      playersArray={playersArray} 
-                                                      numPlayers={numPlayers}
-                                                      handleFinalScore={handleFinalScore}
-                                                    />} />                                      
+                                                    playersArray={playersArray} 
+                                                    numPlayers={numPlayers}
+                                                    handleFinalScore={handleFinalScore}
+                                                  />} />
+            <Route path="playersStats" element={<StatsPage
+                                                    
+                                                  
+                                                />} />                                     
           </Routes>
    
     </div>

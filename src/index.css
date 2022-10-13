@@ -59,19 +59,6 @@ header {
   justify-content: center;
 }
 
-.header-scrabble-letter-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f7e3c9;
-  margin: 1%;
-  width: 5vw;
-  padding: .7em;
-  aspect-ratio: 1 / 1;
-  box-shadow: -1px 1px 1px rgb(71, 53, 29);
-  border: 1px solid #e7d5bc;
-  border-radius: 2px;
-}
 
 .header-scrabble-letter {
   padding: 0;
@@ -253,6 +240,20 @@ input[type=number]::-webkit-outer-spin-button {
 label {
   margin-bottom: 1em;
 }
+
+.little-button {
+  align-self: center;
+  text-decoration: none;
+  font-size: .7em;
+  padding: .7em .5em .5em.5em;
+  margin: 2.5em;
+  border-radius: .25em;
+  box-shadow: 0 1px 1px black;
+  background-color: #e7d5bc;
+  width: 6em;
+ 
+}
+
 
 /* ********** Game Content ********** */
 
@@ -469,7 +470,48 @@ input[type=checkbox] {
   font-size: 1.3rem;
   margin-bottom: 0;
 }
+/* ********** Stats Page ********** */
 
+.stats-page-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.hidden {
+  visibility: hidden;
+  font-size: 0;
+}
+
+td {
+  padding: .3em;
+}
+
+.player-stats-btn {
+  margin-top: 4em;
+}
+
+.table {
+  margin: 2em 1.5em;
+  padding: .5em;
+  border: 1px solid rgb(196, 22, 22);
+  border-radius: .25em;
+}
+
+.header-scrabble-letter-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7e3c9;
+  margin: 1%;
+  width: 5vw;
+  padding: .7em;
+  aspect-ratio: 1 / 1;
+  box-shadow: -1px 1px 1px rgb(71, 53, 29);
+  border: 1px solid #e7d5bc;
+  border-radius: 2px;
+}
 /* ********** Finalize Scores ********** */
 
 .final-score-player-block  input[type=text], .final-score-player-block  input[type=number]{
@@ -574,6 +616,8 @@ input[type=checkbox] {
   margin-bottom: 4em;
 }
 
+/* ********** Media Queries ********** */
+
 @media (min-width:500px) {
   html {
     font-size: 18px;
@@ -652,7 +696,14 @@ input[type=checkbox] {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    
+  }
+
+  .table {
+    padding: 2em;
+  }
+
+  th {
+    padding: 1em;
   }
 }
 
