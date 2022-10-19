@@ -2,7 +2,7 @@ export default function LetterInput(props) {
     return (
         <div className="single-letter-input-div">
             <label htmlFor={props.letterId}></label>
-            <input className="letter-input" id={props.letterId} placeholder={props.placeholder} type="text" maxLength="1" ></input>
+            <input className="letter-input" name={props.letterInputName}id={props.letterId} placeholder={props.placeholder} type="text" maxLength="1" ></input>
             <div>
                 <input className="hidden-radio" name={props.name} id={props.dLetterId} type="radio"></input> 
                 <label className="radio-label radio-label-d" htmlFor={props.dLetterId}>2x</label>

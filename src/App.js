@@ -17,6 +17,7 @@ function App() {
   const [numPlayers, setNumPlayers] = useState(1)
   const [bestWord, setBestWord] = useState({bestWord: "", playerName: "", bestScore: 0})
   const [stats, setStats] = useState()
+
 // I considered creating objects in state to hold this data, but I appreciate the clarity of this solution.
   const [playerOneScore, setPlayerOneScore] = useState(0)
   const [playerTwoScore, setPlayerTwoScore] = useState(0)
@@ -32,6 +33,7 @@ function App() {
   const [listOfWordsP2, setListOfWordsP2] = useState([])
   const [listOfWordsP3, setListOfWordsP3] = useState([])
   const [listOfWordsP4, setListOfWordsP4] = useState([])
+
 
   const letterValues = {
     A: 1, E: 1, I: 1, O: 1, U: 1, R: 1, S: 1, T: 1, L: 1, N: 1, D: 2, G: 2,
@@ -63,51 +65,104 @@ useEffect(() =>  setStats({
 // This large function handles all the tasks that must happen when the add word button is clicked.
 function handleAddWordToScore(e) {
     e.preventDefault()
-    
+  
     const currentPlayerIndex = e.target[0].options.selectedIndex
     const currentPlayer = playersArray[currentPlayerIndex]
     let wordTotal = 0
     let word = ""
 
     window.scrollTo(0, 0)
+
     // Count is used to set ids and is incremented for each word
     setCount(prev => prev + 1)
 
-    // This for loop calculates the base score of the word.
-    for (let i = 1; i < 41; i += 4) {
-        let letter = e.target[i].value.toUpperCase()
-        const double = e.target[i + 1].checked
-        const triple = e.target[i + 2].checked
-        let letterTotal = 0
-        
-        if (letter.length === 1) {
-            word += letter
-            if (double) {
-                letterTotal = letterValues[letter] * 2
-                wordTotal += letterTotal
+    // This forEach calculates the points for each word played.
+    const dataArray = [
+      {
+        letter: e.target.letterName1.value.toUpperCase(),
+        doubleBool: e.target.doubleTriple1[0].checked,
+        tripleBool: e.target.doubleTriple1[1].checked
+      },
+      {
+        letter: e.target.letterName2.value.toUpperCase(),
+        doubleBool: e.target.doubleTriple2[0].checked,
+        tripleBool: e.target.doubleTriple2[1].checked
+      },
+      {
+        letter: e.target.letterName3.value.toUpperCase(),
+        doubleBool: e.target.doubleTriple3[0].checked,
+        tripleBool: e.target.doubleTriple3[1].checked
+      },
+      {
+        letter: e.target.letterName4.value.toUpperCase(),
+        doubleBool: e.target.doubleTriple4[0].checked,
+        tripleBool: e.target.doubleTriple4[1].checked
+      },
+      {
+        letter: e.target.letterName5.value.toUpperCase(),
+        doubleBool: e.target.doubleTriple5[0].checked,
+        tripleBool: e.target.doubleTriple5[1].checked
+      },
+      {
+        letter: e.target.letterName6.value.toUpperCase(),
+        doubleBool: e.target.doubleTriple6[0].checked,
+        tripleBool: e.target.doubleTriple6[1].checked
+      },
+      {
+        letter: e.target.letterName7.value.toUpperCase(),
+        doubleBool: e.target.doubleTriple7[0].checked,
+        tripleBool: e.target.doubleTriple7[1].checked
+      },
+      {
+        letter: e.target.letterName8.value.toUpperCase(),
+        doubleBool: e.target.doubleTriple8[0].checked,
+        tripleBool: e.target.doubleTriple8[1].checked
+      },
+      {
+        letter: e.target.letterName9.value.toUpperCase(),
+        doubleBool: e.target.doubleTriple9[0].checked,
+        tripleBool: e.target.doubleTriple9[1].checked
+      },
+      {
+        letter: e.target.letterName10.value.toUpperCase(),
+        doubleBool: e.target.doubleTriple10[0].checked,
+        tripleBool: e.target.doubleTriple10[1].checked
+      },
+    ]
 
-            } else if (triple) {
-                letterTotal = letterValues[letter] * 3
-                wordTotal += letterTotal
-            } else {
-                letterTotal = letterValues[letter]
-                wordTotal += letterTotal
-            }}
-    }
-// The next 2 if statements calculate words core with double or triple word added
-    if (e.target[41].value) {
-        const multiplier1 = e.target[41].value * 2
+    dataArray.forEach((el) => {
+      let letterTotal = 0
+      if (el.letter) {
+        word += el.letter
+        if(el.doubleBool) {
+          letterTotal = letterValues[el.letter] * 2
+          wordTotal += letterTotal
+        } else if (el.tripleBool) {
+          letterTotal = letterValues[el.letter] * 3
+          wordTotal += letterTotal
+        } else {
+          letterTotal = letterValues[el.letter]
+          wordTotal += letterTotal
+        }
+      }
+    })
+
+// The next 2 if statements calculate word's score with double or triple word added
+    if (e.target.doubleWordBox.value) {
+        const multiplier1 = e.target.doubleWordBox.value * 2
         wordTotal = wordTotal * multiplier1
     }
     
-    if (e.target[42].value) {
-        const multiplier2 = e.target[42].value * 3
+    if (e.target.tripleWordBox.value) {
+        const multiplier2 = e.target.tripleWordBox.value * 3
         wordTotal = wordTotal * multiplier2
     }
+
 // This if statement changes the best word if the new word scores higher than the previous best word.
     if(wordTotal > bestWord.bestScore) {
         setBestWord({bestWord: word, playerName: currentPlayer, bestScore: wordTotal})
     }
+
 // switch updates player score, last word, and word list depending on which player was selected
     switch (currentPlayerIndex) {
         case 0:
@@ -140,6 +195,7 @@ function handleAddWordToScore(e) {
 //updates players array with player names for use throughout app
 function handleStartGame(e) {
     e.preventDefault()
+    
     for(let i = 0; i < numPlayers; i++) {
       if (e.target.form[i].value) {
         setPlayersArray(current => [...current, e.target.form[i].value])
@@ -178,7 +234,6 @@ function handleXButton(e) {
   const id = e.target.id
   const playerNum = id[0] + id[1]
   let removedScore = 0
-
   
   if (playerNum === "p1") {
     for (let i = 0; i < listOfWordsP1.length; i++) {
@@ -186,8 +241,8 @@ function handleXButton(e) {
         removedScore = listOfWordsP1[i].score
       }
     }
-    setPlayerOneScore(playerOneScore - removedScore)
-    setListOfWordsP1(listOfWordsP1.filter((el) => el.id !== id))
+      setPlayerOneScore((prev) => prev - removedScore)
+      setListOfWordsP1((prev) => prev.filter((el) => el.id !== id))
     
     } else if (playerNum === "p2") {
       for (let i = 0; i < listOfWordsP2.length; i++) {
@@ -195,8 +250,8 @@ function handleXButton(e) {
           removedScore = listOfWordsP2[i].score
         }
       }
-      setPlayerTwoScore(playerTwoScore - removedScore)
-      setListOfWordsP2(listOfWordsP2.filter((el) => el.id !== id))
+      setPlayerTwoScore((prev) => prev - removedScore)
+      setListOfWordsP2((prev) => prev.filter((el) => el.id !== id))
       
     } else if (playerNum === "p3") {
       for (let i = 0; i < listOfWordsP3.length; i++) {
@@ -204,16 +259,16 @@ function handleXButton(e) {
           removedScore = listOfWordsP3[i].score
         }
       }
-      setPlayerThreeScore(playerThreeScore - removedScore)
-      setListOfWordsP3(listOfWordsP4.filter((el) => el.id !== id))
+      setPlayerThreeScore((prev) => prev - removedScore)
+      setListOfWordsP3((prev) => prev.filter((el) => el.id !== id))
     } else {
       for (let i = 0; i < listOfWordsP4.length; i++) {
         if (listOfWordsP1[i].id === id) {
           removedScore = listOfWordsP4[i].score
         }
       }
-      setPlayerFourScore(playerFourScore - removedScore)
-      setListOfWordsP4(listOfWordsP4.filter((el) => el.id !== id))
+      setPlayerFourScore((prev) => prev - removedScore)
+      setListOfWordsP4((prev) => prev.filter((el) => el.id !== id))
     }
   }
   
@@ -322,6 +377,7 @@ function handleFinalScore(e) {
                                             lastWordScorePlayerThree={lastWordScorePlayerThree}
                                             lastWordScorePlayerFour={lastWordScorePlayerFour}
                                             />} />
+
             <Route path="/gameSummary" element={<EndGameContent 
                                                 handlePlayAgain={handlePlayAgain}
                                                 playersArray={playersArray}
@@ -338,19 +394,16 @@ function handleFinalScore(e) {
                                                     listOfWordsP4={listOfWordsP4}
                                                     handleXButton={handleXButton}
                                                     />} />
+
             <Route path="finalizingScore" element={<FinalizeScore
                                                     playersArray={playersArray} 
                                                     numPlayers={numPlayers}
                                                     handleFinalScore={handleFinalScore}
                                                   />} />
-            <Route path="playersStats" element={<StatsPage
-                                                    
-                                                  
-                                                />} />                                     
+
+            <Route path="playersStats" element={<StatsPage />} />                                     
           </Routes>
-   
     </div>
-  
   );
 }
 

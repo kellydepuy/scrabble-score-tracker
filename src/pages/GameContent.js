@@ -38,7 +38,7 @@ export default function GameContent(props) {
                         {props.numPlayers > 2 && <option value={props.playersArray[2]}>{props.playersArray[2]}</option>}
                         {props.numPlayers > 3 && <option value={props.playersArray[3]}>{props.playersArray[3]}</option>}
                     </select>
-                    <PlayerScoreInput numPlayers={props.numPlayers}/>
+                    <PlayerScoreInput formNames={props.formNames} numPlayers={props.numPlayers}/>
                     <DoubleTripleWordButtons />
                     <button className="add-to-score-button">Add to Player's Score</button>
                 </form>
